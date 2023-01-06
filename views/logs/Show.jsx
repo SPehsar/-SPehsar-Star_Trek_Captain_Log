@@ -42,7 +42,7 @@ class Show extends React.Component {
           </div>
           <div>
 
-          <br /><p><br></br><a href={`/logs/Index`}>
+          <br /><p><br></br><a href={`/logs/DashBoard`}>
               <button style={myButton}>Go to Logs</button>
             </a></p>
           </div>

@@ -26,7 +26,7 @@ class Edit extends React.Component {
           <input type="submit" style={myButton} value={`Edit ${this.props.log.title}`} />
 
         </form> <br></br>
-       <a href={`/logs/Index`}>
+       <a href={`/logs/DashBoard`}>
             <button style={myButton} >Cancel</button>
           </a>
           </div>
