@@ -32,7 +32,7 @@ class New extends React.Component {
 
           <br></br>
           <div>
-            <a href={`/logs/Index`}>
+            <a href={`/logs/Dashboard`}>
               <button style={myButton} >Cancel</button>
             </a>
           </div>
@@ -43,5 +43,4 @@ class New extends React.Component {
 }
 
 module.exports = New
-
 

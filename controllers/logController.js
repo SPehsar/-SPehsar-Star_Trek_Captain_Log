@@ -3,7 +3,7 @@ const router = express.Router()
 const Log = require("../models/logs")
 
 // I.N.D.U.C.E.S
-// Index, New, Delete, Update, Create, Edit, Show, Error Page, Landing (STARTPAGE) Page
+// Dashboard, Index, New, Delete, Update, Create, Edit, Show, Error Page, Landing (INDEX) Page
 
 // POINT TO ACTUAL ERROR PAGE - Future Use
 const showActualError = (res, err) =>{
@@ -23,12 +23,12 @@ const showErrorPage = (res, err) => {
     )
 };
 
-// STARTPAGE
+// INDEX
 router.get("/", (req, res) => {
   // Query model to return all logs
-  Log.find({}, (error, allLogs) => {
+  Log.find({}, (error) => {
     if (!error) {
-      res.status(200).render("logs/StartPage", {
+      res.status(200).render("logs/Index", {
         // logs: allLogs
       })
     } else {
@@ -37,12 +37,12 @@ router.get("/", (req, res) => {
   })
 })
 
-// INDEX
-router.get("/index", (req, res) => {
+// Dashboard
+router.get("/dashboard", (req, res) => {
   // Query model to return all logs
   Log.find({}, (error, allLogs) => {
     if (!error) {
-      res.status(200).render("logs/Index", {
+      res.status(200).render("logs/Dashboard", {
         logs: allLogs
       })
     } else {
@@ -59,7 +59,7 @@ router.get("/new", (req, res) => {
 // DELETE
 router.delete("/:id", (req, res) => {
   Log.findByIdAndDelete(req.params.id, (err, data) => {
-    res.redirect("/logs/Index")
+    res.redirect("/logs/Dashboard")
   })
 })
 
@@ -84,7 +84,7 @@ router.post("/", (req, res) => {
   }
 Log.create(req.body, (error, createdLog) => {
     if (!error) {
-      res.status(200).redirect("/logs/Index")
+      res.status(200).redirect("/logs/Dashboard")
     } else {
       showErrorPage(res, error)
     }
