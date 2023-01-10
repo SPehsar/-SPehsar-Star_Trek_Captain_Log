@@ -24,12 +24,10 @@ const showErrorPage = (res, err) => {
 };
 
 // INDEX
-router.get("/", (req, res) => {
-  // Query model to return all logs
+router.get("/", (req, res) => {  
   Log.find({}, (error) => {
     if (!error) {
       res.status(200).render("logs/Index", {
-        // logs: allLogs
       })
     } else {
       showErrorPage(res, err)
@@ -42,7 +40,7 @@ router.get("/dashboard", (req, res) => {
   // Query model to return all logs
   Log.find({}, (error, allLogs) => {
     if (!error) {
-      res.status(200).render("logs/Dashboard", {
+      res.status(200).render("logs/dashboard", {
         logs: allLogs
       })
     } else {

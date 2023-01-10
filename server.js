@@ -32,6 +32,14 @@ app.use(methodOverride("_method"))
 // ===== Routes =====
 app.use("/logs", logsController)
 
+// The following "catch all" route (note the *) is necessary
+// to return the index.html on all non-AJAX requests
+// // ---------------------------------------------- build 
+// app.get("/*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client/build", "index.html"))
+// })
+// ----------------------------------------------------
+
 // ===== Port setup =====
 app.listen(PORT, () => { 
   console.log(`Listening on port: ${PORT}`)
