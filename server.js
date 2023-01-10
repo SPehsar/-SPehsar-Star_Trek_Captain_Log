@@ -35,9 +35,10 @@ app.use("/logs", logsController)
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests
 // // ---------------------------------------------- build 
-// app.get("/*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "client/build", "index.html"))
-// })
+app.get("/*", (req, res) => {
+  // res.sendFile(path.join(__dirname, "index.html"))
+  res.redirect("/logs")
+})
 // ----------------------------------------------------
 
 // ===== Port setup =====
